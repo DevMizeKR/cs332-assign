@@ -9,6 +9,13 @@ object Main {
         print(pascal(col, row) + " ")
       println()
     }
+    println()
+    println("Parentheses Balancing")
+    println(balance("()()t((e()s((t())".toList))
+    println(balance("()()()()()()asdf(())((()()))".toList))
+    
+    println()
+    println("Counting Change")
   }
 
   /**
@@ -34,7 +41,7 @@ object Main {
           case ')' => count - 1
           case _ => count
         }
-        checkBalance(chars.tail, count)
+        checkBalance(chars.tail, newCount)
       }
     }
     checkBalance(chars, 0)
