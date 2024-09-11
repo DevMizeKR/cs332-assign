@@ -10,6 +10,7 @@ Repository for POSTECH CSED332 class
 - **Scala IDE for Eclipse**  ```4.7.0```
 
 ## :pushpin: Assignment List
+0. **Example**  ```example```
 1. a
 2. b
 3. c
