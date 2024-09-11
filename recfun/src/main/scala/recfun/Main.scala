@@ -23,7 +23,22 @@ object Main {
   /**
    * Exercise 2
    */
-  def balance(chars: List[Char]): Boolean = ???
+  def balance(chars: List[Char]): Boolean = {
+    def checkBalance(chars: List[Char], count: Int) : Boolean = {
+      if (count < 0) false
+      else if (chars.isEmpty && count == 0) true
+      else if (chars.isEmpty && count != 0) false
+      else {
+        val newCount = chars.head match {
+          case '(' => count + 1
+          case ')' => count - 1
+          case _ => count
+        }
+        checkBalance(chars.tail, count)
+      }
+    }
+    checkBalance(chars, 0)
+  }
 
   /**
    * Exercise 3
