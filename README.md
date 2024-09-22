@@ -11,13 +11,18 @@ Repository for POSTECH CSED332 class
 
 ## :pushpin: Assignment List
 0. **Example**  ```example```
-1. a
-2. b
-3. c
-4. d
-5. e
-6. f
-7. g
+1. **Function & Evaluation - Recursion**  ```recfun```
+    * Exercise 1. Pascal's Triangle
+    * Exercise 2. Parentheses Balancing
+    * Exercise 3. Counting Change
+2. **Higher Order Functions - Functional Sets**  ```funsets```
+    * Exercise 1. Basic Functions on Sets
+    * Exercise 2. Queries and Transformations on Sets
+3. **Data and Abstraction - Object-Oriented Sets**  ```objsets```
+4. **Types and Pattern Matching - Huffman Coding**  ```patmat```
+5. **Collections - Anagrams**  ```forcomp```
+6. **Lazy Evaluation - Bloxorz**  ```streams```
+7. ???
 
 ## :hammer_and_wrench: Git Convention
 1. Commit / Pull Request
