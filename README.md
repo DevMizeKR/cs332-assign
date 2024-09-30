@@ -19,6 +19,10 @@ Repository for POSTECH CSED332 class
     * Exercise 1. Basic Functions on Sets
     * Exercise 2. Queries and Transformations on Sets
 3. **Data and Abstraction - Object-Oriented Sets**  ```objsets```
+    * Exercise 1. Filtering
+    * Exercise 2. Taking Unions
+    * Exercise 3. Sorting Tweets by Their Influence
+    * Exercise 4. Tying Everything Together
 4. **Types and Pattern Matching - Huffman Coding**  ```patmat```
 5. **Collections - Anagrams**  ```forcomp```
 6. **Lazy Evaluation - Bloxorz**  ```streams```
