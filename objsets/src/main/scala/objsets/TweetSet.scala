@@ -68,7 +68,7 @@ abstract class TweetSet {
    * Question: Should we implment this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-  def descendingByRetweet: TweetList = ???
+  def descendingByRetweet: TweetList
   
   def isEmpty: Boolean
 
@@ -108,6 +108,8 @@ class Empty extends TweetSet {
   def union(that: TweetSet): TweetSet = that
   
   def mostRetweeted: Tweet = throw new NoSuchElementException("There are no tweets that satisfy the condition.")
+  
+  def descendingByRetweet: TweetList = Nil
   
   def isEmpty: Boolean = true
   
@@ -152,10 +154,17 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
     val rightMost = if (!left.isEmpty) right.mostRetweeted else elem
     
     (leftMost.retweets, elem.retweets, rightMost.retweets) match {
-      case (l, e, r) if l > r && l > e => leftMost
-      case (l, e, r) if r > l && r > e => rightMost
+      case (l, e, r) if l >= r && l >= e => leftMost
+      case (l, e, r) if r >= l && r >= e => rightMost
       case _ => elem
     }
+  }
+  
+  def descendingByRetweet: TweetList = {
+    val mostTweet = this.mostRetweeted
+    val mostRemovedSet = this.remove(mostTweet)
+    
+    new Cons(mostTweet, mostRemovedSet.descendingByRetweet)
   }
   
   def isEmpty: Boolean = false
