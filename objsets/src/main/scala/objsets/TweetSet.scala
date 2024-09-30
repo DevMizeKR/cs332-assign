@@ -128,12 +128,15 @@ class Empty extends TweetSet {
 
 class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
 
+  // 1. Search Left Subtree of elem with condition p
+  // 2. Search Right Subtree of elem with condition p
+  // 3. Check whether elem satisfies condition p
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = {
     val filteringLeft = left.filterAcc(p, acc)
-    val filteringRight = right.filterAcc(p, acc)
+    val filteringRight = right.filterAcc(p, filteringLeft)
     
-    if (p(elem)) acc.incl(elem)
-    else acc
+    if (p(elem)) filteringRight.incl(elem)
+    else filteringRight
   }
 
 
