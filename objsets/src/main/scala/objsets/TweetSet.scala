@@ -38,9 +38,6 @@ abstract class TweetSet {
   /**
    * This method takes a predicate and returns a subset of all the elements
    * in the original set for which the predicate is true.
-   *
-   * Question: Can we implment this method here, or should it remain abstract
-   * and be implemented in the subclasses?
    */
   def filter(p: Tweet => Boolean): TweetSet = filterAcc(p, new Empty)
 
@@ -51,9 +48,6 @@ abstract class TweetSet {
 
   /**
    * Returns a new `TweetSet` that is the union of `TweetSet`s `this` and `that`.
-   *
-   * Question: Should we implment this method here, or should it remain abstract
-   * and be implemented in the subclasses?
    */
    def union(that: TweetSet): TweetSet
 
@@ -62,11 +56,8 @@ abstract class TweetSet {
    *
    * Calling `mostRetweeted` on an empty set should throw an exception of
    * type `java.util.NoSuchElementException`.
-   *
-   * Question: Should we implment this method here, or should it remain abstract
-   * and be implemented in the subclasses?
    */
-  def mostRetweeted: Tweet = ???
+  def mostRetweeted: Tweet
 
   /**
    * Returns a list containing all tweets of this set, sorted by retweet count
@@ -78,6 +69,8 @@ abstract class TweetSet {
    * and be implemented in the subclasses?
    */
   def descendingByRetweet: TweetList = ???
+  
+  def isEmpty: Boolean
 
 
   /**
@@ -113,8 +106,11 @@ class Empty extends TweetSet {
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = acc
   
   def union(that: TweetSet): TweetSet = that
-
-
+  
+  def mostRetweeted: Tweet = throw new NoSuchElementException("There are no tweets that satisfy the condition.")
+  
+  def isEmpty: Boolean = true
+  
   /**
    * The following methods are already implemented
    */
@@ -149,6 +145,20 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
     
     unionRight
   }
+  
+  // Find LeftMost & RightMost Retweeted Tweets and contrast them with elem
+  def mostRetweeted: Tweet = {
+    val leftMost = if (!left.isEmpty) left.mostRetweeted else elem
+    val rightMost = if (!left.isEmpty) right.mostRetweeted else elem
+    
+    (leftMost.retweets, elem.retweets, rightMost.retweets) match {
+      case (l, e, r) if l > r && l > e => leftMost
+      case (l, e, r) if r > l && r > e => rightMost
+      case _ => elem
+    }
+  }
+  
+  def isEmpty: Boolean = false
 
 
   /**
