@@ -24,6 +24,9 @@ Repository for POSTECH CSED332 class
     * Exercise 3. Sorting Tweets by Their Influence
     * Exercise 4. Tying Everything Together
 4. **Types and Pattern Matching - Huffman Coding**  ```patmat```
+    * Exercise 1. Constructing Huffman Trees
+    * Exercise 2. Decoding
+    * Exercise 3. Encoding
 5. **Collections - Anagrams**  ```forcomp```
 6. **Lazy Evaluation - Bloxorz**  ```streams```
 7. ???
