@@ -91,7 +91,7 @@ object Anagrams {
    */
   def combinations(occurrences: Occurrences): List[Occurrences] = {
     occurrences match {
-      case Nil => List(List())
+      case Nil => List(Nil)
       case (char, num) :: rest => {
         val restCombinations = combinations(rest)
         val currentCombinations = for {
@@ -166,6 +166,21 @@ object Anagrams {
    *
    *  Note: There is only one anagram of an empty sentence.
    */
-  def sentenceAnagrams(sentence: Sentence): List[Sentence] = ???
+  def sentenceAnagrams(sentence: Sentence): List[Sentence] = {
+    val occurrences = sentenceOccurrences(sentence)
+    
+    def createAnagram(occurrences: Occurrences): List[Sentence] = {
+      if (occurrences.isEmpty) List(Nil)
+      else {
+        for {
+          combination <- combinations(occurrences)
+          currentAnagram <- dictionaryByOccurrences.getOrElse(combination, Nil)
+          restAnagram <- createAnagram(subtract(occurrences, wordOccurrences(currentAnagram)))
+        } yield currentAnagram :: restAnagram
+      }
+    }
+    
+    createAnagram(occurrences)
+  }
 
 }
