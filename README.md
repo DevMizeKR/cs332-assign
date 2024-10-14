@@ -28,6 +28,10 @@ Repository for POSTECH CSED332 class
     * Exercise 2. Decoding
     * Exercise 3. Encoding
 5. **Collections - Anagrams**  ```forcomp```
+    * Exercise 1. Computing Occurrence Lists
+    * Exercise 2. Computing Anagrams of a Word
+    * Exercise 3. Computing Subsets of a Set
+    * Exercise 4. Computing Anagrams of a Sentence
 6. **Lazy Evaluation - Bloxorz**  ```streams```
 7. ???
 
