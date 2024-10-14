@@ -43,7 +43,7 @@ object Anagrams {
 
   /** Converts a sentence into its character occurrence list. */
   def sentenceOccurrences(s: Sentence): Occurrences = {
-    val connectedWords = s.reduce(_ + _)
+    val connectedWords = s.mkString
     wordOccurrences(connectedWords)
   }
 
@@ -167,8 +167,6 @@ object Anagrams {
    *  Note: There is only one anagram of an empty sentence.
    */
   def sentenceAnagrams(sentence: Sentence): List[Sentence] = {
-    val occurrences = sentenceOccurrences(sentence)
-    
     def createAnagram(occurrences: Occurrences): List[Sentence] = {
       if (occurrences.isEmpty) List(Nil)
       else {
@@ -180,7 +178,7 @@ object Anagrams {
       }
     }
     
-    createAnagram(occurrences)
+    createAnagram(sentenceOccurrences(sentence))
   }
 
 }
