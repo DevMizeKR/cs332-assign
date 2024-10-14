@@ -123,7 +123,7 @@ object Anagrams {
           case _ => occurrencesMap
         }
       }
-    }.toList.filter(_._2 > 0)
+    }.toList.filter(_._2 > 0).sorted
   }
 
   /** Returns a list of all anagram sentences of the given sentence.
