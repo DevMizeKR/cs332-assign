@@ -29,7 +29,8 @@ Repository for POSTECH CSED332 class
     * Exercise 3. Encoding
 5. **Collections - Anagrams**  ```forcomp```
 6. **Lazy Evaluation - Bloxorz**  ```streams```
-7. ???
+    * Exercise 1. Game Setup
+    * Exercise 2. Solving the Game
 
 ## :hammer_and_wrench: Git Convention
 1. Commit / Pull Request
