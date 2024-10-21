@@ -33,7 +33,8 @@ Repository for POSTECH CSED332 class
     * Exercise 3. Computing Subsets of a Set
     * Exercise 4. Computing Anagrams of a Sentence
 6. **Lazy Evaluation - Bloxorz**  ```streams```
-7. ???
+    * Exercise 1. Game Setup
+    * Exercise 2. Solving the Game
 
 ## :hammer_and_wrench: Git Convention
 1. Commit / Pull Request
