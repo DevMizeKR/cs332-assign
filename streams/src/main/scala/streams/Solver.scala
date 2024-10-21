@@ -66,13 +66,10 @@ trait Solver extends GameDef {
     if (initial.isEmpty) initial
     else {
       val (block, moves) = initial.head
-      val newExplored = explored + block
+      val history = neighborsWithHistory(block, moves)
+      val newNeighbors = newNeighborsOnly(history, explored)
       
-      val nextBlocks = block.legalNeighbors
-                                   .filter{case(b, _) => !explored.contains(b)}
-                                   .map{case(b, m) => (b, m :: moves)}
-      
-      nextBlocks.toStream.append(from(initial.tail, newExplored))
+      newNeighbors ++ from(initial.tail ++ newNeighbors, explored + block)
     }
   }
 
