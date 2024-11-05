@@ -12,29 +12,31 @@ Repository for POSTECH CSED332 class
 ## :pushpin: Assignment List
 0. **Example**  ```example```
 1. **Function & Evaluation - Recursion**  ```recfun```
-    * Exercise 1. Pascal's Triangle
-    * Exercise 2. Parentheses Balancing
-    * Exercise 3. Counting Change
+    * P1. Pascal's Triangle
+    * P2. Parentheses Balancing
+    * P3. Counting Change
 2. **Higher Order Functions - Functional Sets**  ```funsets```
-    * Exercise 1. Basic Functions on Sets
-    * Exercise 2. Queries and Transformations on Sets
+    * P1. Basic Functions on Sets
+    * P2. Queries and Transformations on Sets
 3. **Data and Abstraction - Object-Oriented Sets**  ```objsets```
-    * Exercise 1. Filtering
-    * Exercise 2. Taking Unions
-    * Exercise 3. Sorting Tweets by Their Influence
-    * Exercise 4. Tying Everything Together
+    * P1. Filtering
+    * P2. Taking Unions
+    * P3. Sorting Tweets by Their Influence
+    * P4. Tying Everything Together
 4. **Types and Pattern Matching - Huffman Coding**  ```patmat```
-    * Exercise 1. Constructing Huffman Trees
-    * Exercise 2. Decoding
-    * Exercise 3. Encoding
+    * P1. Constructing Huffman Trees
+    * P2. Decoding
+    * P3. Encoding
 5. **Collections - Anagrams**  ```forcomp```
-    * Exercise 1. Computing Occurrence Lists
-    * Exercise 2. Computing Anagrams of a Word
-    * Exercise 3. Computing Subsets of a Set
-    * Exercise 4. Computing Anagrams of a Sentence
+    * P1. Computing Occurrence Lists
+    * P2. Computing Anagrams of a Word
+    * P3. Computing Subsets of a Set
+    * P4. Computing Anagrams of a Sentence
 6. **Lazy Evaluation - Bloxorz**  ```streams```
-    * Exercise 1. Game Setup
-    * Exercise 2. Solving the Game
+    * P1. Game Setup
+    * P2. Solving the Game
+7. **???**
+    * P1.
 
 ## :hammer_and_wrench: Git Convention
 1. Commit / Pull Request
