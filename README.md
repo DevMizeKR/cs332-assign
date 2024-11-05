@@ -35,8 +35,9 @@ Repository for POSTECH CSED332 class
 6. **Lazy Evaluation - Bloxorz**  ```streams```
     * P1. Game Setup
     * P2. Solving the Game
-7. **???**
-    * P1.
+7. **NodeScala** ```nodescala```
+    * P1. Extending Futures
+    * P2. An Asynchronous HTTP Server
 
 ## :hammer_and_wrench: Git Convention
 1. Commit / Pull Request
