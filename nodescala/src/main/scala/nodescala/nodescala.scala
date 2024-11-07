@@ -48,8 +48,25 @@ trait NodeScala {
    */
   def start(relativePath: String)(handler: Request => Response): Subscription = {
     val listener = createListener(relativePath)
-    val listenerSubscription = listener.start()
+    val listenerStart = listener.start()
     
+    val cancelSource = CancellationTokenSource()
+    val cancelToken = cancelSource.cancellationToken
+    
+    def processRequests(): Future[Unit] = Future {
+      while (cancelToken.nonCancelled) {
+        val nextRequest = listner.nextRequest()
+        nextRequest.foreach {
+          case (request, exchange) =>
+            val response = handler(request)
+            respond(exchange, cancelToken, response)
+        }
+      }
+    }
+    
+    processRequests()
+    
+    Subscription(listenerStart, cancelSource)
   }
 
 }
