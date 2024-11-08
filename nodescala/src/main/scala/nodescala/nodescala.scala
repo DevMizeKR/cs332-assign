@@ -50,23 +50,19 @@ trait NodeScala {
     val listener = createListener(relativePath)
     val listenerStart = listener.start()
     
-    val cancelSource = CancellationTokenSource()
-    val cancelToken = cancelSource.cancellationToken
-    
-    def processRequests(): Future[Unit] = Future {
-      while (cancelToken.nonCancelled) {
-        val nextRequest = listner.nextRequest()
-        nextRequest.foreach {
-          case (request, exchange) =>
-            val response = handler(request)
-            respond(exchange, cancelToken, response)
+    val subscription = Future.run() { cancelToken =>
+      Future {
+        async {
+          while (cancelToken.nonCancelled) {
+            listener.nextRequest().foreach { case (request, exchange) =>
+              if (cancelToken.nonCancelled) { respond (exchange, cancelToken, handler(request)) }
+            }
+          }
         }
       }
     }
     
-    processRequests()
-    
-    Subscription(listenerStart, cancelSource)
+    Subscription(listenerStart, subscription)
   }
 
 }
